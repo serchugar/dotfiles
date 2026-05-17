@@ -1,0 +1,87 @@
+[font]
+size = 12.0
+
+[font.normal]
+family = "Inconsolata Nerd Font"
+style = "Regular"
+
+[window]
+padding = { x = 6, y = 6 }
+opacity = 1.0
+dimensions = { columns = 120, lines = 35 }
+
+[[keyboard.bindings]]
+key = "F11"
+action = "ToggleFullscreen"
+
+# COLORS
+# ==========================================================================
+[colors.primary]
+background = "#232326"
+foreground = "#a7aab0"
+
+[colors.cursor]
+text = "#232326"
+cursor = "#57a5e5"
+
+[colors.vi_mode_cursor]
+text = "#232326"
+cursor = "#61afef"
+
+[colors.search.matches]
+foreground = "#abb2bf"
+background = "#3e4451"
+
+[colors.search.focused_match]
+foreground = "#282c34"
+background = "#e5c07b"
+
+[colors.hints.start]
+foreground = "#abb2bf"
+background = "#3e4451"
+
+[colors.hints.end]
+foreground = "#c8ccd4"
+background = "#3e4451"
+
+[colors.line_indicator]
+foreground = "None"
+background = "None"
+
+[colors.footer_bar]
+foreground = "#abb2bf"
+background = "#21252b"
+
+[colors.selection]
+text = "#abb2bf"
+background = "#35363b"
+
+[colors.normal]
+black   = "#101012"
+red     = "#de5d68"
+green   = "#8fb573"
+yellow  = "#dbb671"
+blue    = "#57a5e5"
+magenta = "#bb70d2"
+cyan    = "#51a8b3"
+white   = "#a7aab0"
+
+[colors.bright]
+black   = "#5a5b5e"
+red     = "#de5d68"
+green   = "#8fb573"
+yellow  = "#c49060"
+blue    = "#68aee8"
+magenta = "#bb70d2"
+cyan    = "#51a8b3"
+white   = "#818387"
+
+[colors.dim]
+black   = "#21252b"
+red     = "#be5046"
+green   = "#7da869"
+yellow  = "#d19a66"
+blue    = "#528bff"
+magenta = "#a678dd"
+cyan    = "#4aa5b7"
+white   = "#9aa2ad"

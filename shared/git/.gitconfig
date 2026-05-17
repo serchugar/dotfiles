@@ -1,0 +1,7 @@
+[user]
+	email = 162186871+serchugar@users.noreply.github.com
+	name = serchugar
+[pull]
+	rebase = true
+[core]
+	editor = nvim
