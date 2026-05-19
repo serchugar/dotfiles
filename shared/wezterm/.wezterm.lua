@@ -47,7 +47,7 @@ config.keys = {
 	},
 	{
 		key = "w",
-		mods = "SHIFT",
+		mods = "ALT",
 		action = wezterm.action.CloseCurrentTab({ confirm = false }),
 	},
 }
