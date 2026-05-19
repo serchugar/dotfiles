@@ -1,0 +1,9 @@
+[opener]
+neovim = [
+    { run = 'nvim "%*"', block = true, desc = "Neovim" }
+]
+
+[open]
+rules = [
+    { mime = "text/*", use = "neovim" }
+]
