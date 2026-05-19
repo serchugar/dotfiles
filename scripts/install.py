@@ -30,6 +30,7 @@ def copy(src: Path, dst: Path) -> None:
 if __name__ == "__main__":
     print()
     copy(REPO / "shared/git/.gitconfig", HOME / ".gitconfig")
+    symlink(REPO / "shared/wezterm/.wezterm.lua", HOME / ".wezterm.lua")
 
     if OS == "Linux":
         CONFIG: Path = HOME / ".config"
