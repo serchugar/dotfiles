@@ -1,0 +1,10 @@
+# General flags for all files
+CompileFlags
+  Add: [-Wall]
+
+---
+# Config block for C files
+If:
+  PathMatch: .*\.c
+CompileFlags:
+  Add: [-IC:/dev/languages/c/include]
