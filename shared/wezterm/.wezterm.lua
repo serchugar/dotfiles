@@ -22,6 +22,8 @@ config.line_height = 1.0
 -------------------------------------------------------------------------------
 -- 3. WINDOW DIMENSIONS AND DESIGN
 -------------------------------------------------------------------------------
+config.window_background_opacity = 1
+
 config.initial_cols = 140
 config.initial_rows = 35
 
@@ -49,6 +51,11 @@ config.keys = {
 		key = "w",
 		mods = "ALT",
 		action = wezterm.action.CloseCurrentTab({ confirm = false }),
+	},
+	{
+		key = "n",
+		mods = "ALT",
+		action = wezterm.action.SpawnTab("DefaultDomain"),
 	},
 }
 

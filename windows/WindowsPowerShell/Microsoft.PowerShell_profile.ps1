@@ -8,3 +8,5 @@ function lla { & ls.exe --color=auto -lah $args }
 function nvimp { $env:NVIM_APPNAME = "nvim/nvim-custom";  nvim.exe @args }
 function nvimc { $env:NVIM_APPNAME = "nvim/nvim-nvchad";  nvim.exe @args }
 function nvim  { $env:NVIM_APPNAME = "nvim/nvim-lazyvim"; nvim.exe @args }
+
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
