@@ -13,22 +13,26 @@ LINUX: Path = REPO / "linux"
 WINDOWS: Path = REPO / "windows"
 
 
-def symlink(src: Path, dst: Path) -> None:
+def symlink(src: Path, dst: Path, name: str | None = None) -> None:
+    name = name if name else (src.name if src.is_dir() else src.parent.name)
+    name = name.capitalize() + ":"
     dst.parent.mkdir(parents=True, exist_ok=True)
     if dst.exists() or dst.is_symlink():
-        print(f"\tskipping {dst} (already exists)")
+        print(f"\t{name:20} skipping {dst} (already exists)")
         return
     dst.symlink_to(src)
-    print(f"\tlinked {dst} to {src}")
+    print(f"\t{name:20} linked {dst} to {src}")
 
 
-def copy(src: Path, dst: Path) -> None:
+def copy(src: Path, dst: Path, name: str | None = None) -> None:
+    name = name if name else (src.name if src.is_dir() else src.parent.name)
+    name = name.capitalize() + ":"
     dst.parent.mkdir(parents=True, exist_ok=True)
     if dst.exists():
-        print(f"\tskipping {dst} (already exists)")
+        print(f"\t{name:20} skipping {dst} (already exists)")
         return
     shutil.copy2(src, dst)
-    print(f"\tcopied {src} into {dst}")
+    print(f"\t{name:20} copied {src} into {dst}")
 
 
 if __name__ == "__main__":
@@ -38,23 +42,28 @@ if __name__ == "__main__":
 
     if OS == "Linux":
         CONFIG: Path = HOME / ".config"
+
         symlink(SHARED / "alacritty", CONFIG / "alacritty")
         symlink(SHARED / "yazi", CONFIG / "yazi")
+        symlink(SHARED / "ruff", CONFIG / "ruff")
+        symlink(SHARED / "clangd", CONFIG / "clangd")
 
     elif OS == "Windows":
         APPDATA: Path = Path(os.environ["APPDATA"])
+        LOCALAPPDATA: Path = Path(os.environ["LOCALAPPDATA"])
+
         symlink(SHARED / "alacritty", APPDATA / "alacritty")
         symlink(SHARED / "yazi", APPDATA / "yazi/config")
+        symlink(SHARED / "ruff", APPDATA / "ruff")
+
+        symlink(SHARED / "clangd", LOCALAPPDATA / "clangd")
 
     else:
         raise SystemExit(f"OS not supported: {OS}")
-    print("\nThe following programs must be installed manually:\n")
+    print("\n\tThe following programs must be installed manually:")
+
     print(
-        "\t- Clangd: Copy '.clang-format' and '.clangd' files into the highest "
-        "possible directory within the disk where you are storing your projects"
-    )
-    print(
-        "\t- Powershell: open $PROFILE within a powershell session with your editor "
+        "\tPowershell: open $PROFILE within a powershell session with your editor "
         "(E.g: 'nvim $PROFILE') and copy the contents of 'Microsoft.PowerShell_profile.ps1'"
     )
     print()
